@@ -5,6 +5,8 @@ import TextDesign from "./components/TextDesign";
 import Translate from "./components/Translate";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Route from "./components/Route";
+
 
 const items = [
     {
@@ -57,62 +59,46 @@ const options = [
     }
 ]
 
+
+
 const App = () => {
 
     const [selected, setSelected] = useState(options[0]);
 
-    const [activeWidget, setActiveWidget] = useState("text")
-
-    const [renderedResult, setRenderedResult] = useState("");
-
-    useEffect(() => {
-        const result = () => {
-
-            if (activeWidget === "accordion") {
-
-                setRenderedResult(<Accordion items={items} />)
-
-            }
-            else if (activeWidget === "search") {
-
-                setRenderedResult(<Search />);
-
-            }
-            else if (activeWidget === "text") {
-                setRenderedResult(<TextDesign
-                    options={options}
-                    selected={selected}
-                    onSelectedChange={setSelected}
-                />);
-            }
-            else if (activeWidget === "translate") {
-                setRenderedResult(<Translate />);
-            }
-        }
-
-        result();
-
-    }, [activeWidget, selected])
-
-
     return (
 
-        <div className="container-fluid">
+        <div className="container-fluid p-0">
 
-            <Navbar
-
-                activeWidget={activeWidget}
-                setActiveWidget={setActiveWidget}
-            />
+            <Navbar />
 
             <div className="ui container" style={{ marginTop: 30 }}>
 
-                {renderedResult}
+                <Route path="/" >
+                    <Accordion items={items} />
+                </Route>
+
+
+                <Route path="/translate" >
+                    <Translate />
+                </Route>
+
+
+                <Route path="/search" >
+                    <Search />
+                </Route>
+
+
+                <Route path="/text" >
+                    <TextDesign
+                        options={options}
+                        selected={selected}
+                        onSelectedChange={setSelected}
+                    />
+                </Route>
 
             </div>
 
-
-            <Footer/>
+            <Footer />
         </div>
     );
 
