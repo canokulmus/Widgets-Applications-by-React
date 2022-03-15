@@ -24,12 +24,6 @@ const Route = ({ path, children }) => {
 
 
 
-
-
-
-
-
-
     return currentPath === path
 
         ? children

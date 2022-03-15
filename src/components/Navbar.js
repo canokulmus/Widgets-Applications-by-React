@@ -2,15 +2,14 @@ import React from 'react'
 import Link from './Link';
 
 
-const Navbar = () => {
-
+const Navbar = ({ path }) => {
 
 
     return (
 
         <nav className="navbar  navbar-expand-lg navbar-dark bg-dark ">
             <div className="container">
-                <a className="navbar-brand" href="#">React Widgets</a>
+                <a className="navbar-brand" href="/">React Widgets</a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon" />
                 </button>
@@ -19,27 +18,27 @@ const Navbar = () => {
                         <li className="nav-item">
                             <Link
 
-                                className={window.location.pathname === "/" ? "nav-link active" : "nav-link"}
+                                className={path === "/accordion" ? "nav-link active" : "nav-link"}
                                 aria-current="page"
-                                href="/">Accordion
+                                href="/accordion">Accordion
                             </Link>
                         </li>
                         <li className="nav-item">
                             <Link
 
-                                className={window.location.pathname === "/search" ? "nav-link active" : "nav-link"}
+                                className={path === "/search" ? "nav-link active" : "nav-link"}
                                 href="/search">Wikipedia Search</Link>
                         </li>
                         <li className="nav-item">
                             <Link
 
-                                className={window.location.pathname === "/text" ? "nav-link active" : "nav-link"}
+                                className={path === "/text" ? "nav-link active" : "nav-link"}
                                 href="/text">Text Design</Link>
                         </li>
                         <li className="nav-item">
                             <Link
 
-                                className={window.location.pathname === "/translate" ? "nav-link active" : "nav-link"}
+                                className={path === "/translate" ? "nav-link active" : "nav-link"}
                                 href="/translate">Google Translate</Link>
                         </li>
                     </ul>

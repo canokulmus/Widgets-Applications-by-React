@@ -6,7 +6,7 @@ import Translate from "./components/Translate";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Route from "./components/Route";
-
+import Homepage from "./components/Homepage";
 
 const items = [
     {
@@ -60,20 +60,43 @@ const options = [
 ]
 
 
-
 const App = () => {
 
     const [selected, setSelected] = useState(options[0]);
+    const [path, setPath] = useState(window.location.pathname);
+
+
+
+    useEffect(() => {
+
+        const onLocationChange = () => {
+            setPath(window.location.pathname);
+        }
+
+        window.addEventListener("popstate", onLocationChange);
+
+        return () => {
+            window.removeEventListener("popstate", onLocationChange);
+        }
+
+    }, [])
+
+
+
 
     return (
 
         <div className="container-fluid p-0">
 
-            <Navbar />
+            <Navbar path={path} />
 
+            <Route path="/" >
+                <Homepage />
+            </Route>
             <div className="ui container" style={{ marginTop: 30 }}>
 
-                <Route path="/" >
+
+                <Route path="/accordion" >
                     <Accordion items={items} />
                 </Route>
 

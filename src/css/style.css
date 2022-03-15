@@ -1,0 +1,45 @@
+
+
+.first-screen {
+
+    position: absolute;
+    top: 0;
+    bottom:0 ;
+    z-index: 9999;
+
+}
+
+.card {
+
+    border-color: black;
+    border-radius: 0;
+    transition: .1s;
+}
+
+.card:hover {
+
+    background-color: rgb(240, 223, 200) !important;
+
+}
+
+.bg-home {
+    background-color: antiquewhite;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.left-0 {
+    border-left: 0 !important;
+}
+
+.top-0 {
+    border-top: 0 !important;
+}
+.right-0 {
+    border-right: 0 !important;
+}
+.bottom-0 {
+    border-bottom: 0 !important;
+}
