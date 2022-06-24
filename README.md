@@ -13,7 +13,7 @@ It's a basic accordion menu like we generally use for FAQ components.
 
 This is a translations widget which makes use of Google Translate API. It include some amount of languages as a target, but detects the language making the translation from. 
 
-# 3) Wkipedia Search
+# 3) Wikipedia Search
 
 This is a real time search widget using Wikipedia API.
 
